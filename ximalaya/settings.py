@@ -19,13 +19,18 @@ ITEM_PIPELINES = {
     'ximalaya.pipelines.XimalayaPipeline': 300,
     'scrapy.contrib.pipeline.files.FilesPipeline': 1,
 }
-FILES_STORE = 'C:\Users\zhangyao\Music\spider'
+
+DOWNLOADER_MIDDLEWARES = {
+    'scrapy.downloadermiddlewares.useragent.UserAgentMiddleware':None,
+    'ximalaya.middlewares.RotateUserAgentMiddleware':400,
+}
+FILES_STORE = '/Users/apple/Desktop/fm'
 
 # Crawl responsibly by identifying yourself (and your website) on the user-agent
 #USER_AGENT = 'ximalaya (+http://www.yourdomain.com)'
 
 # Obey robots.txt rules
-ROBOTSTXT_OBEY = True
+ROBOTSTXT_OBEY = False
 
 # Configure maximum concurrent requests performed by Scrapy (default: 16)
 #CONCURRENT_REQUESTS = 32
